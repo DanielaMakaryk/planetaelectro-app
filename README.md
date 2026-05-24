@@ -2,8 +2,6 @@
 Aplicación Web E-commerce para curso de Desarrollo Full Stack - Talento Tech (2024)
 
 
-)
-
 🪐 Planeta Electro - Mobile App MVP 🚀
 Aplicación móvil interactiva diseñada y desarrollada como un Producto Mínimo Viable (MVP) para el e-commerce tecnológico regional.
 
