@@ -1,5 +1,5 @@
 # planetaelectro-app
-Aplicación Web E-commerce para curso de Front-End (Estático y Dinámico)- Argentina Programa 4.0 (2023)
+Aplicación Web E-commerce para el curso de Front-End (Estático y Dinámico) - Argentina Programa 4.0 (2023)
 
 
 # 🪐 Planeta Electro - Versión App Gamer
