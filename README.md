@@ -43,5 +43,5 @@ La plataforma fue diseñada bajo el concepto de **cotización dinámica y vigenc
 3. El usuario puede refinar su elección agregando, quitando o vaciando el carrito por completo.
 4. Al hacer clic en el ícono de WhatsApp, se despliega un modal interactivo con el mensaje estructurado con sus productos para coordinar el presupuesto final con el asesor comercial.
 
-*Proyecto desarrollado para el curso de Front-End de Argentina Programa 4.0 (2023)*.
+*Proyecto para el curso de Front-End de Argentina Programa 4.0 (2023)*.
 
