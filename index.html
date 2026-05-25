@@ -6,18 +6,11 @@
     <title>Planeta Electro - Versión App Gamer</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Kalam:wght@400;700&family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --violeta-fluor: #BF00FF;
-            --violeta-oscuro: #3D0066;
-            --violeta-fondo: #4A148C;
-            --lila-pastel: #DCD0FF;
-            --amarillo-fluor: #CCFF00;
-            --blanco: #FFFFFF;
-            --negro-texto: #111111;
-        }
-        body { margin: 0; font-family: 'Montserrat', sans-serif; background: linear-gradient(135deg, var(--violeta-fondo), var(--violeta-oscuro)); color: var(--blanco); min-height: 100vh; overflow-x: hidden; padding-bottom: 40px; }
-
-        header { background: linear-gradient(to bottom, var(--violeta-fluor), var(--violeta-fondo)); padding: 1.4rem 3%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 25px rgba(0,0,0,0.4); position: sticky; top: 0; z-index: 1000; }
+        :root { --violeta-fluor: #BF00FF; --violeta-oscuro: #3D0066; --violeta-fondo: #4A148C; --lila-pastel: #DCD0FF; --amarillo-fluor: #CCFF00; --blanco: #FFFFFF; --negro-texto: #111111; --verde-whatsapp: #25D366; }
+        body { margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; background: linear-gradient(135deg, var(--violeta-fondo), var(--violeta-oscuro)); color: var(--blanco); min-height: 100vh; overflow-x: hidden; padding-bottom: 40px; }
+        
+        /* Header libre de un tirón a lo ancho, esfumado y fundido de extremo a extremo sin límites laterales */
+        header { background: linear-gradient(to bottom, var(--violeta-fluor), var(--violeta-fondo)); padding: 1.4rem 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 20px rgba(0,0,0,0.3); position: sticky; top: 0; z-index: 1000; width: 100%; box-sizing: border-box; }
         .logo-container { display: flex; align-items: center; gap: 12px; }
         .planeta-icon { font-size: 32px; display: inline-block; animation: rotarPlaneta 6s linear infinite; }
         @keyframes rotarPlaneta { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
@@ -25,40 +18,48 @@
         .logo-texto { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700; font-size: clamp(1.1rem, 3.5vw, 1.6rem); color: var(--blanco); margin: 0; transition: 0.3s; cursor: pointer; }
         .logo-texto:hover { color: var(--amarillo-fluor); text-shadow: 0 0 10px var(--amarillo-fluor); }
         .logo-subtexto { font-family: 'Kalam', cursive; font-size: clamp(0.75rem, 2vw, 0.95rem); color: var(--amarillo-fluor); font-weight: bold; }
-
         nav { display: flex; gap: 10px; align-items: center; }
         .btn-nav { text-decoration: none !important; color: var(--blanco) !important; background: rgba(255,255,255,0.15); padding: 8px 14px; border-radius: 20px; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: clamp(0.75rem, 2.5vw, 0.9rem); transition: 0.3s; border: 1px solid rgba(255,255,255,0.25); cursor: pointer; }
         .btn-nav:hover { background: var(--amarillo-fluor); color: var(--negro-texto) !important; box-shadow: 0 0 10px var(--amarillo-fluor); border-color: var(--amarillo-fluor); }
-
-        .btn-wsapp-round { background: #25D366 !important; border: none !important; border-radius: 50% !important; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(37,211,102,0.4); cursor: pointer; transition: 0.3s; padding: 0 !important; }
-        .btn-wsapp-round:hover { transform: scale(1.1) translateY(-2px); box-shadow: 0 6px 18px rgba(37,211,102,0.6); background: var(--amarillo-fluor) !important; }
-        .btn-wsapp-round svg { width: 24px; height: 24px; fill: #FFFFFF; display: block; }
+        .btn-wsapp-round { background: var(--verde-whatsapp) !important; border: none !important; border-radius: 50% !important; width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(37,211,102,0.4); cursor: pointer; transition: 0.3s; padding: 0 !important; }
+        .btn-wsapp-round:hover { transform: scale(1.1); background: var(--amarillo-fluor) !important; }
+        .btn-wsapp-round svg { width: 22px; height: 22px; fill: #FFFFFF; display: block; }
         .btn-wsapp-round:hover svg { fill: var(--negro-texto); }
 
-        .nosotros-container { display: grid; grid-template-columns: repeat(2, minmax(140px, 260px)); justify-content: center; gap: 15px; padding: 25px 5%; background: rgba(255,255,255,0.05); }
-        .mini-card { background: var(--lila-pastel); border: 2px solid var(--violeta-fluor); padding: 15px; border-radius: 18px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; font-family: 'Montserrat', sans-serif; font-size: clamp(0.85rem, 2.2vw, 1rem); font-weight: bold; color: var(--violeta-oscuro); transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s; cursor: pointer; text-align: center; }
-        .mini-card:hover { background: var(--amarillo-fluor); color: var(--negro-texto); transform: scale(1.05); box-shadow: 0 8px 20px rgba(204,255,0,0.4); }
-
-        .grid-servicios { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; padding: 40px 5%; }
-        .card { background: var(--blanco); color: var(--negro-texto); padding: 30px; width: 290px; border-radius: 24px; text-align: center; transition: 0.4s; border-bottom: 8px solid var(--violeta-fluor); box-shadow: 0 10px 25px rgba(0,0,0,0.3); position: relative; overflow: hidden; }
-        .tag-producto { position: absolute; top: 15px; right: 15px; background: var(--lila-pastel); border: 1px solid var(--violeta-fluor); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; color: var(--violeta-oscuro); text-transform: uppercase; }
-        .card:hover .tag-producto { background: var(--amarillo-fluor); border-color: var(--amarillo-fluor); }
-        .card .prod-icon { font-size: 3.5rem; margin-top: 15px; margin-bottom: 10px; transition: 0.3s; }
+        .grid-servicios { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; padding: 40px 4%; }
+        .card { background: var(--blanco); color: var(--negro-texto); padding: 25px; width: 280px; border-radius: 24px; text-align: center; transition: 0.4s; border-bottom: 8px solid var(--violeta-fluor); box-shadow: 0 10px 25px rgba(0,0,0,0.3); position: relative; overflow: hidden; cursor: pointer; }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(191,0,255,0.3); }
+        .card.selected { background: var(--lila-pastel); border-color: var(--violeta-fluor); }
+        
+        .check-badge { position: absolute; top: 15px; left: 15px; background: var(--violeta-fluor); color: var(--blanco); width: 22px; height: 22px; border-radius: 50%; display: none; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold; }
+        .card.selected .check-badge { display: flex; }
+        .tag-producto { position: absolute; top: 15px; right: 15px; background: var(--lila-pastel); border: 1px solid var(--violeta-fluor); padding: 4px 10px; border-radius: 20px; font-size: 0.72rem; font-weight: bold; color: var(--violeta-oscuro); text-transform: uppercase; }
+        .card:hover .tag-producto { background: var(--amarillo-fluor); border-color: var(--amarillo-fluor); color: var(--negro-texto); }
+        .card .prod-icon { font-size: 3.2rem; margin-top: 15px; margin-bottom: 10px; transition: 0.3s; }
         .card:hover .prod-icon { transform: scale(1.15); }
-        .card h3 { transition: color 0.3s; font-family: 'Playfair Display', serif; font-style: italic; margin: 10px 0; font-size: 1.6rem; font-weight: 700; }
-        .card p { font-size: 0.95rem; color: #555; margin: 0; line-height: 1.4; }
-        .card:hover { transform: translateY(-12px); box-shadow: 0 20px 40px rgba(191,0,255,0.3); }
+        .card h3 { transition: color 0.3s; font-family: 'Playfair Display', serif; font-style: italic; margin: 10px 0; font-size: 1.5rem; font-weight: 700; }
+        .card p { font-size: 0.9rem; color: #555; margin: 0; line-height: 1.4; }
         .card:hover h3 { color: var(--violeta-fluor); }
 
-        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--violeta-fondo); display: flex; justify-content: center; align-items: center; z-index: 2000; opacity: 0; pointer-events: none; transition: opacity 0.4s ease; padding: 40px 24px; box-sizing: border-box; }
+        .cart-section { max-width: 640px; margin: 30px auto 40px auto; padding: 25px; background: rgba(255,255,255,0.05); border-radius: 24px; border: 2px dashed var(--violeta-fluor); text-align: center; box-sizing: border-box; }
+        .cart-section-title { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.8rem; color: var(--amarillo-fluor); margin: 0 0 15px 0; }
+        .cart-container { background: rgba(0,0,0,0.2); padding: 15px; border-radius: 16px; min-height: 60px; }
+        .empty-msg { color: var(--lila-pastel); font-weight: 700; font-size: 0.95rem; margin: 0; }
+        .cart-row { display: flex; justify-content: space-between; align-items: center; background: var(--blanco); color: var(--negro-texto); padding: 12px 16px; border-radius: 12px; margin-bottom: 10px; font-weight: 700; font-size: 0.95rem; text-align: left; }
+        .cart-row:last-child { margin-bottom: 0; }
+        .btn-row-del { background: none; border: none; color: var(--rojo-eliminar); font-size: 1.2rem; font-weight: bold; cursor: pointer; padding: 0 5px; }
+        
+        .btn-clear-cart { background: var(--verde-whatsapp); color: var(--blanco); border: none; padding: 10px 20px; border-radius: 14px; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.9rem; cursor: pointer; transition: 0.3s; margin-top: 15px; display: inline-block; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        .btn-clear-cart:hover { background: var(--amarillo-fluor); color: var(--negro-texto); }
+
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(61,0,102,0.98); display: flex; justify-content: center; align-items: center; z-index: 2000; opacity: 0; pointer-events: none; transition: opacity 0.4s ease; padding: 20px; box-sizing: border-box; }
         .modal-overlay.active { opacity: 1; pointer-events: auto; }
-        .contact-form-modal, .success-box { background: var(--blanco); color: var(--negro-texto); padding: 30px 20px; border-radius: 28px; box-shadow: 0 20px 60px rgba(0,0,0,0.6); text-align: center; width: 100%; max-width: 330px; border: 3px solid var(--violeta-fluor); box-sizing: border-box; }
-        .form-titulo { font-family: 'Playfair Display', serif; color: var(--violeta-fluor); margin-top: 0; font-style: italic; font-weight: 700; font-size: 1.7rem; margin-bottom: 15px; }
-        textarea { width: 100%; padding: 12px; margin: 8px 0; border: 2px solid var(--violeta-fluor); border-radius: 12px; box-sizing: border-box; font-family: 'Montserrat', sans-serif; font-size: 0.95rem; background: #fafafa; transition: 0.3s; resize: none; }
-        textarea:focus { border-color: var(--amarillo-fluor); outline: none; }
-        .btn-submit { background: var(--lila-pastel); color: var(--negro-texto); border: 2px solid var(--violeta-fluor); padding: 8px 20px; width: auto; min-width: 110px; border-radius: 12px; font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700; font-size: 1.15rem; cursor: pointer; transition: 0.3s; margin: 12px auto 0 auto; display: inline-block; }
-        .btn-submit:hover { background: var(--amarillo-fluor); border-color: var(--amarillo-fluor); box-shadow: 0 5px 15px rgba(204,255,0,0.5); }
-        .check-icon { font-size: 4.5rem; color: var(--violeta-fluor); display: block; margin-bottom: 10px; }
+        .contact-form-modal, .success-box { background: var(--blanco); color: var(--negro-texto); padding: 25px 20px; border-radius: 28px; box-shadow: 0 20px 60px rgba(0,0,0,0.5); text-align: center; width: 100%; max-width: 325px; border: 3px solid var(--violeta-fluor); box-sizing: border-box; margin: auto; }
+        .form-titulo { font-family: 'Playfair Display', serif; color: var(--violeta-fluor); margin-top: 0; font-style: italic; font-weight: 700; font-size: 1.6rem; margin-bottom: 12px; }
+        textarea { width: 100%; padding: 10px; margin: 6px 0; border: 2px solid var(--violeta-fluor); border-radius: 12px; box-sizing: border-box; font-family: 'Montserrat', sans-serif; font-size: 0.9rem; background: #fafafa; height: 95px; resize: none; }
+        .btn-submit { background: var(--lila-pastel); color: var(--negro-texto); border: 2px solid var(--violeta-fluor); padding: 8px 24px; width: auto; min-width: 110px; border-radius: 12px; font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700; font-size: 1.1rem; cursor: pointer; transition: 0.3s; margin: 10px auto 0 auto; display: inline-block; }
+        .btn-submit:hover { background: var(--amarillo-fluor); border-color: var(--amarillo-fluor); }
+        .check-icon { font-size: 4rem; color: var(--violeta-fluor); display: block; margin-bottom: 10px; }
     </style>
 </head>
 <body>
@@ -73,34 +74,38 @@
     </div>
     <nav>
         <a href="#productos" class="btn-nav">Productos</a>
+        <a href="#seccion-carrito" class="btn-nav">Carrito</a>
         <button class="btn-nav btn-wsapp-round" onclick="abrirModal(event)">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 24 24">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
             </svg>
         </button>
     </nav>
 </header>
 
-<div class="nosotros-container">
-    <div class="mini-card" onclick="abrirModal(event)"><span>📜</span> Garantía Asegurada</div>
-    <div class="mini-card" onclick="abrirModal(event)"><span>🚚</span> Envíos Rápidos</div>
-    <div class="mini-card" onclick="abrirModal(event)"><span>🛠️</span> Soporte Técnico</div>
-    <div class="mini-card" onclick="abrirModal(event)"><span>🎧</span> Atención 24/7</div>
+<div class="grid-servicios" id="productos">
+    <div class="card" id="e1" onclick="toggleProducto('e1', '💻 Notebooks')"><span class="check-badge">✓</span><span class="tag-producto">Nuevo</span><div class="prod-icon">💻</div><h3>Notebooks</h3><p>Equipos portátiles de alta gama, ideales para diseño avanzado y desarrollo pluma profesional.</p></div>
+    <div class="card" id="e2" onclick="toggleProducto('e2', '🖥️ Computadoras PC')"><span class="check-badge">✓</span><span class="tag-producto">Gamer</span><div class="prod-icon">🖥️</div><h3>Computadoras PC</h3><p>Torres de escritorio armadas con máxima potencia y refrigeración para multitarea pesada.</p></div>
+    <div class="card" id="p2" onclick="toggleProducto('p2', '📱 Smartphones')"><span class="check-badge">✓</span><span class="tag-producto">Popular</span><div class="prod-icon">📱</div><h3>Smartphones</h3><p>Celulares de última generación con cámaras de nivel profesional y procesadores veloces.</p></div>
+    <div class="card" id="p3" onclick="toggleProducto('p3', '📺 Smart TV 4K')"><span class="check-badge">✓</span><span class="tag-producto">Destacado</span><div class="prod-icon">📺</div><h3>Smart TV 4K</h3><p>Pantallas grandes de alta definición con paneles smart para disfrutar tus streamings favoritos.</p></div>
+    <div class="card" id="p4" onclick="toggleProducto('p4', '🔊 Parlantes BT')"><span class="check-badge">✓</span><span class="tag-producto">Nuevo</span><div class="prod-icon">🔊</div><h3>Parlantes BT</h3><p>Sonido envolvente e inalámbrico con conectividad bluetooth de alta fidelidad acústica.</p></div>
+    <div class="card" id="e3" onclick="toggleProducto('e3', '⌨️ Teclados Mecánicos')"><span class="check-badge">✓</span><span class="tag-producto">RGB</span><div class="prod-icon">⌨️</div><h3>Teclados Mecánicos</h3><p>Periféricos ergonómicos con switches de respuesta rápida para máxima precisión al escribir.</p></div>
+    <div class="card" id="e4" onclick="toggleProducto('e4', '🖱️ Mouses Gamer')"><span class="check-badge">✓</span><span class="tag-producto">Pro</span><div class="prod-icon">🖱️</div><h3>Mouses Gamer</h3><p>Dispositivos ópticos de alta precisión con botones configurables y agarre anatómico.</p></div>
+    <div class="card" id="p6" onclick="toggleProducto('p6', '🎧 Auriculares Pro')"><span class="check-badge">✓</span><span class="tag-producto">Más Vendido</span><div class="prod-icon">🎧</div><h3>Auriculares Pro</h3><p>Audífonos con cancelación activa de ruido y micrófonos limpios para streaming o reuniones.</p></div>
 </div>
 
-<div class="grid-servicios" id="productos">
-    <div class="card"><span class="tag-producto">Nuevo</span><div class="prod-icon">💻</div><h3>Notebooks & PC</h3><p>Equipos de alta potencia para gaming, diseño avanzado y desarrollo profesional de software.</p></div>
-    <div class="card"><span class="tag-producto">Popular</span><div class="prod-icon">📱</div><h3>Smartphones</h3><p>Celulares de última generación con cámaras pro y máximo rendimiento para tus apps.</p></div>
-    <div class="card"><span class="tag-producto">Más Vendido</span><div class="prod-icon">📺</div><h3>Smart TV 4K</h3><p>Pantallas de alta definición con tecnología smart para disfrutar de tus plataformas de streaming.</p></div>
-    <div class="card"><span class="tag-producto">Nuevo</span><div class="prod-icon">🔊</div><h3>Parlantes BT</h3><p>Sonido envolvente e inalámbrico de alta fidelidad, ideal para musicalizar tus ambientes.</p></div>
-    <div class="card"><span class="tag-producto">Popular</span><div class="prod-icon">⌨️</div><h3>Teclado & Mouse</h3><p>Combos periféricos ergonómicos y mecánicos con retroiluminación RGB para máxima precisión.</p></div>
-    <div class="card"><span class="tag-producto">Más Vendido</span><div class="prod-icon">🎧</div><h3>Auriculares Pro</h3><p>Audífonos con cancelación activa de ruido y micrófonos de estudio para reuniones o gaming.</p></div>
-</div>
+<section class="cart-section" id="seccion-carrito">
+    <h2 class="cart-section-title">Mi Carrito</h2>
+    <div class="cart-container" id="carrito-items">
+        <p class="empty-msg" id="msg-vacio">Selecciona productos arriba para solicitar tu cotización 🛒</p>
+    </div>
+    <button class="btn-clear-cart" id="btn-vaciar-todo" onclick="vaciarCarrito()" style="display:none;">Vaciar Carrito</button>
+</section>
 
 <div class="modal-overlay" id="modalWsapp" onclick="cerrarModalExterno(event)">
     <section class="contact-form-modal" id="f-box">
-        <h2 class="form-titulo">Envíanos tu consulta</h2>
-        <textarea id="form-mensaje" rows="4" placeholder="Escribe tu mensaje aquí sobre precios, stock, envíos o especificaciones técnicas..."></textarea>
+        <h2 class="form-titulo">Solicitar Cotización</h2>
+        <textarea id="form-mensaje" placeholder="Escribe tu mensaje aquí..."></textarea>
         <button class="btn-submit" onclick="enviarSim()">Enviar</button>
     </section>
     <section class="success-box" id="s-box" style="display:none;">
@@ -110,21 +115,95 @@
     </section>
 </div>
 
-<script>
+<script {nonce}>
+    let carrito = [];
+
+    function toggleProducto(idCard, nombreProducto) {
+        const card = document.getElementById(idCard);
+        card.classList.toggle('selected');
+        
+        if (card.classList.contains('selected')) {
+            carrito.push({ id: idCard, nombre: nombreProducto });
+        } else {
+            carrito = carrito.filter(item => item.id !== idCard);
+        }
+        actualizarCarrito();
+    }
+
+    function deseleccionarProducto(idCard) {
+        const card = document.getElementById(idCard);
+        if (card) card.classList.remove('selected');
+        carrito = carrito.filter(item => item.id !== idCard);
+        actualizarCarrito();
+    }
+
+    function vaciarCarrito() {
+        carrito.forEach(item => {
+            const card = document.getElementById(item.id);
+            if (card) card.classList.remove('selected');
+        });
+        carrito = [];
+        actualizarCarrito();
+    }
+
+    function actualizarCarrito() {
+        const contenedor = document.getElementById('carrito-items');
+        const msgVacio = document.getElementById('msg-vacio');
+        const btnVaciarTodo = document.getElementById('btn-vaciar-todo');
+        
+        const filas = contenedor.querySelectorAll('.cart-row');
+        filas.forEach(f => f.remove());
+        
+        if (carrito.length === 0) {
+            msgVacio.style.display = 'block';
+            btnVaciarTodo.style.display = 'none';
+        } else {
+            msgVacio.style.display = 'none';
+            btnVaciarTodo.style.display = 'inline-block';
+            
+            carrito.forEach(item => {
+                const fila = document.createElement('div');
+                fila.className = 'cart-row';
+                fila.innerHTML = `
+                    <span>🚀 ${item.nombre}</span>
+                    <button class="btn-row-del" onclick="deseleccionarProducto('${item.id}')">✕</button>
+                `;
+                contenedor.appendChild(fila);
+            });
+        }
+    }
+
     function abrirModal(event) {
         event.preventDefault();
         document.getElementById('modalWsapp').classList.add('active');
         document.getElementById('f-box').style.display = 'block';
         document.getElementById('s-box').style.display = 'none';
+        
+        if (carrito.length === 0) {
+            document.getElementById('form-mensaje').value = "Por favor, selecciona al menos un producto arriba para hacer tu cotización 🛒";
+        } else {
+            let productosTexto = carrito.map(item => item.nombre).join(', ');
+            document.getElementById('form-mensaje').value = `Solicito cotización de los siguientes productos: ${productosTexto}.`;
+        }
     }
+
     function cerrarModal() { document.getElementById('modalWsapp').classList.remove('active'); }
     function cerrarModalExterno(event) { if (event.target.classList.contains('modal-overlay')) { cerrarModal(); } }
+    
     function enviarSim() {
+        if (carrito.length === 0) {
+            cerrarModal();
+            return;
+        }
         document.getElementById('f-box').style.display = 'none';
         document.getElementById('s-box').style.display = 'block';
-        setTimeout(function() { cerrarModal(); document.getElementById('form-mensaje').value = ''; }, 3000);
+        setTimeout(function() { 
+            cerrarModal(); 
+            document.getElementById('form-mensaje').value = ''; 
+            vaciarCarrito();
+        }, 3000);
     }
 </script>
 </body>
 </html>
-                                                                                                                       
+
